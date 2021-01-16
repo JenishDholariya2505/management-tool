@@ -5,10 +5,11 @@ const initState = {
     getData: false,
     status: false,
     Find: undefined,
+    User: undefined
 };
 
 export default (state = initState, action) => {
-    console.log(action, 'action')
+    console.log(action.type, 'action')
     switch (action.type) {
         case "GROUP_GET_REQUEST":
             return (
@@ -159,7 +160,7 @@ export default (state = initState, action) => {
             )
         case "GROUP_UPDATE_SUCCESS":
             JdSuccess({ text: action.payload.message })
-            state.group = state.group.filter(d => d.token !== action.payload.data.token);
+            state.group = state.group.filter(d => d.token !== action.payload.data.groupToken);
             return (
                 state = {
                     ...state,
@@ -179,6 +180,44 @@ export default (state = initState, action) => {
                 }
             )
         case "GROUP_UPDATE_ERROR_FAIL":
+            JDNotification({ mes: action.payload })
+            return (
+                state = {
+                    ...state,
+                    getData: false,
+                    status: false,
+                }
+            )
+        case "GROUP_GET_USER_REQUEST":
+            return (
+                state = {
+                    ...state,
+                    Noti: false,
+                    getData: false,
+                    status: true,
+                }
+            )
+        case "GROUP_GET_USER_SUCCESS":
+            JdSuccess({ text: action.payload.message })
+            return (
+                state = {
+                    ...state,
+                    Noti: false,
+                    User: action.payload.data,
+                    getData: true,
+                    status: false,
+                }
+            )
+        case "GROUP_GET_USER_FAIL":
+            JDNotification({ mes: action.payload.message })
+            return (
+                state = {
+                    ...state,
+                    getData: false,
+                    status: false,
+                }
+            )
+        case "GROUP_GET_USER_ERROR_FAIL":
             JDNotification({ mes: action.payload })
             return (
                 state = {

@@ -32,7 +32,6 @@ const Users = () => {
     // open modal all 
     const Delete = (e) => {
         SetSelectData(e)
-        console.log(e, 'e')
         SetModalVar({ DeleteM: true })
     }
     const edit = (data) => {

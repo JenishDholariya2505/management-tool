@@ -95,5 +95,16 @@ width: calc(100vw - 102px);
     .ant-spin-container{
         height: calc(100vh - 143px);
     }
-
+    .ant-spin-nested-loading > div > .ant-spin {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 4;
+    }
+    .ant-spin-container::after {
+        background: #419fe4;
+    }
 `;

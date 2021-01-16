@@ -3,14 +3,13 @@ import { Form } from 'antd';
 import { JDModal, JdFormComponents, JdSelect } from '../../components/Index'
 const { JdRadio, JdInput, JdButton, JdForm } = JdFormComponents;
 
-const options = [{ value: '40g4aPlo' }, { value: 'pO9pX8Ww' }, { value: 'Hover User' }, { value: 'Simple User2' }];
-const NewGroup = ({ visible, onCreate, data, NameModal, loading, clr }) => {
+const NewGroup = ({ visible, onCreate, data, NameModal, loading, clr, close }) => {
+    const options = [{ value: '1RcfsEo3', key: 'Jenish', label: 'Jenish' }, { value: 'pO9pX8Ww', key: 'Hepin', label: 'Hepin' }, { value: '40g4aPlo', key: 'Chirag', label: 'Chirag' }, { value: 'bvmZhPE1', key: 'jenil', label: 'jenil' }];
     const [form] = Form.useForm();
     const [value, setvalue] = useState(1)
     const onChange = e => {
         setvalue(e.target.value)
     };
-    console.log(data, 'datamodal')
     useEffect(() => {
         if (clr) { form.resetFields(); }
         if (data) { form.setFieldsValue(data); }
@@ -18,7 +17,7 @@ const NewGroup = ({ visible, onCreate, data, NameModal, loading, clr }) => {
 
     const Close = () => {
         form.resetFields();
-        onCreate()
+        close()
     }
     return (
         <JDModal
@@ -33,7 +32,6 @@ const NewGroup = ({ visible, onCreate, data, NameModal, loading, clr }) => {
                     form
                         .validateFields()
                         .then((values) => {
-                            form.resetFields();
                             onCreate(values);
                         })
                         .catch((info) => {
@@ -57,7 +55,7 @@ const NewGroup = ({ visible, onCreate, data, NameModal, loading, clr }) => {
                             </JdRadio>
                         </JdRadio.Group>
                     </JdForm.Item>
-                    <JdForm.Item hasFeedback name="groupUsers" style={{ marginTop: '4px' }} label="Group Users" rules={[{ type: 'array', whitespace: true, required: true, message: 'Enter Group Users' }]}>
+                    <JdForm.Item className='selectover' hasFeedback name="groupUsers" style={{ marginTop: '4px' }} label="Group Users" rules={[{ type: 'array', whitespace: true, required: true, message: 'Enter Group Users' }]}>
                         <JdSelect placeholder='Enter Group Users' mode="multiple" name="Group Users" style={{ width: '100%', marginTop: '4px' }} options={options} />
                     </JdForm.Item>
                 </JdForm>

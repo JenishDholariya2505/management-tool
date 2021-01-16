@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserGroupWrapper } from './User-GroupsStyle';
-import { groupGet, createGroup, deleteGroup, findGroup, updateGroup } from '../../../../Core/Redux/Group/GroupAction';
+import { groupGet, createGroup, deleteGroup, findGroup, updateGroup, getUsers } from '../../../../Core/Redux/Group/GroupAction';
 import { JDTable, JDDescriptions, JDTooltip, JDSpace, Icons, JdFormComponents } from '../../components/Index'
 import NewGroup from './NewGroup'
 import DeleteModalSet from './Delete';
@@ -16,9 +16,8 @@ const UserGroups = () => {
     const [Edit, SetEdit] = useState([])
     useEffect(() => {
         dispatch(groupGet())
+        dispatch(getUsers())
     }, [dispatch])
-
-    console.log(ListGroup.Find, 'ListGroup.Find')
 
     useEffect(() => {
         if (ListGroup.Find !== undefined) {
@@ -37,7 +36,7 @@ const UserGroups = () => {
     }
     const UseAddAction = (values) => {
         let group = values
-        values['groupUsers'] = values.groupUsers[0]
+        values['groupUsers'] = values.groupUsers
         dispatch(createGroup(group))
     }
     const Delete = (e) => {
@@ -50,8 +49,8 @@ const UserGroups = () => {
     const DeleteAction = () => {
         dispatch(deleteGroup(DeleteToken.token))
     }
-    const EditAction = () => {
-        dispatch(updateGroup(DeleteToken.token))
+    const EditAction = (value) => {
+        dispatch(updateGroup(ListGroup.Find.token, value))
     }
     const CloseModal = () => {
         SetModalVar({ CreateM: false, EditM: false, DeleteM: false })
@@ -96,14 +95,12 @@ const UserGroups = () => {
             ),
         },
     ];
-    console.log(Edit, 'Edit')
     return (
         <UserGroupWrapper>
             <div className='d-flex Box'>
                 <JDDescriptions title="User-Groups" />
                 <JdButton tital='Create' className='ant-btn' onClick={AddModal} />
-                <NewGroup loading={ListGroup.status} clr={ListGroup.getData} data={ModalVar.EditM ? Edit : null} visible={ModalVar.CreateM} onCreate={UseAddAction} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} />
-                {/* <AddUser clr={Users.getData} loading={Users.status} visible={ModalVar.CreateM} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} Data={ModalVar.EditM ? Edit : null} onCreate={ModalVar.EditM ? editdata : UseAddAction} close={CloseModal} /> */}
+                <NewGroup loading={ListGroup.status} clr={ListGroup.getData} data={ModalVar.EditM ? Edit : null} User={ListGroup} visible={ModalVar.CreateM} onCreate={ModalVar.EditM ? EditAction : UseAddAction} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} close={CloseModal} />
             </div>
             <div>
                 <div>
@@ -116,7 +113,7 @@ const UserGroups = () => {
                         scroll={{ x: 'calc(600px + 50%)', y: 'calc(100vh - 260px)' }}
                         loading={ListGroup.status}
                     />
-                    <DeleteModalSet Delete={DeleteAction} Privew={ModalVar.DeleteM} close={CloseModal} data={DeleteToken} />
+                    <DeleteModalSet loading={ListGroup.status} Delete={DeleteAction} Privew={ModalVar.DeleteM} close={CloseModal} data={DeleteToken} />
                 </div>
             </div>
         </UserGroupWrapper>

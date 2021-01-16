@@ -236,7 +236,6 @@ class StyleBTN extends React.Component {
   constructor() {
     super();
     this.onToggle = (e) => {
-      console.log(e);
       this.props.onToggle(e);
     };
   }

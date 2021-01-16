@@ -7,21 +7,24 @@ export const MeetingWrapper = styled.div`
     display: flex;
     .Title{
         color: ${({ theme }) => theme.Meeting.Title};
+        margin-left: 15px;
+    }
+    .Arranged{
+        border-right: 1px solid ${({ theme }) => theme.Page.Users.Border}1f;
     }
     .Arranged, .Invited{
         width: 50vw;
-        padding: 5px;
+        padding: 5px 10px 5px 0px;
         min-width: 392px;
-        border-right: 1px solid ${({ theme }) => theme.Page.Users.Border}1f;
         .Arranged_Data{
             height: calc(100vh - 212px);
             position: relative;
             display: block;
             margin-top: 10px;
-            padding-right: 5px;
+            padding: 0px 10px;
             overflow: auto;
             .ArrangedCard{
-                margin: 5px 0px;
+                margin: 10px 0px;
                 display: block;
                 height: 116px;
                 padding: 10px 10px 5px;
@@ -73,6 +76,9 @@ export const MeetingWrapper = styled.div`
 @media only screen and (max-width: 904px) {
     .Contet{
         display: grid;
+        .Arranged_Data{
+            height: calc(100vh - 580px) !important;
+        }
         .Arranged, .Invited{
             width: calc(100vw - 120px);
         }
@@ -105,9 +111,23 @@ export const MeetingWrapper = styled.div`
     }
 `;
 export const MeetingCreateWrapper = styled.div`
+    overflow: auto;
+    height: calc(100vh - 167px);
+    margin-top: 20px;
+@media only screen and (max-width: 904px) {
+    .d-flex{
+        display: block !important;
+    }
+  }
+@media only screen and (max-width: 575px) {
+    .ant-form{
+        overflow: auto;
+        height: 257px;
+    }
+  }
         .Details{
             border: 1px solid ${({ theme }) => theme.Page.Users.Border}1f;
-            margin-top: 20px;
+            margin: 6px 0px 20px;
             border-radius: 4px;
             padding: 5px;
             .Tital{
@@ -121,6 +141,84 @@ export const MeetingCreateWrapper = styled.div`
                 padding: 0px 10px;
                 background-color: ${({ theme }) => theme.TaskManagement.TextBG};
                 position: relative;
+            }
+            .ant-form-item-control-input-content > input, .ant-picker, .ant-picker-range, .ant-select-selector, .ant-input{
+                background-color: ${({ theme }) => theme.Meeting.CreateMeeting.InputBG};
+                border: 1px solid ${({ theme }) => theme.Meeting.CreateMeeting.InputBorder}2b;
+                color: ${({ theme }) => theme.Meeting.CreateMeeting.Title};
+                border-radius: 5px;
+                .anticon-swap-right{
+                    color: ${({ theme }) => theme.Page.Users.ButtonBG};
+                }
+            }
+            .ant-form-item-explain.ant-form-item-explain-error {
+                color: #ff4d4f;
+                font-size: 12px;
+            }
+            .chipbody{
+                width: 160px;
+                margin: 0px 5px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                justify-content: space-between;
+                display: flex;
+                padding: 0px 10px;
+                border-radius: 5px;
+                line-height: 25px;
+                font-size: 12px;
+                font-family: Roboto-Light;
+                color: ${({ theme }) => theme.Modal.HadText};
+                background-color: ${({ theme }) => theme.Upload.BG} !important;
+                padding: 0px 10px;
+            }
+            .ant-picker:not([disabled]):hover {
+                background-color: transparent;
+            }
+            .ant-picker-input > input{
+                color: ${({ theme }) => theme.TaskManagement.Tital}bf !important;
+            }
+            .ant-form-item-control-input-content > input::placeholder, .ant-input::placeholder{
+                color: ${({ theme }) => theme.Meeting.CreateMeeting.InputPlassholder};
+                font-family: 'Roboto-Regular';
+                font-size: 12px;
+                letter-spacing: 0.75px;
+            }
+            .chip, .ant-upload-list{
+                overflow-x: auto;
+                display: flex;
+            }
+            .SelectBTN{
+                background-color: ${({ theme }) => theme.TaskManagement.UploadBTN};
+                color: ${({ theme }) => theme.TaskManagement.Tital}bf;
+                border: none;
+                border-radius: 5px;
+            }
+            .Description{
+                min-width: 100px;
+                display: flex;
+            }
+            .authorMain{
+                margin-right: 20%;
+            }
+                .author{
+                    color: ${({ theme }) => theme.Meeting.CreateMeeting.Title};
+                    font-size: 11px;
+                    letter-spacing: 0.75px;
+                    font-family: 'Roboto-Regular';
+                    font-weight: 400;
+                    line-height: 25px;
+                    margin-left: 7px;
+                }
+            .ant-form-item-label{
+                width: 150px;
+                label{
+                    color: ${({ theme }) => theme.Meeting.CreateMeeting.Title};
+                    font-size: 12px;
+                    letter-spacing: 0.75px;
+                    font-family: 'Roboto-Regular';
+                    font-weight: 400;
+                }
             }
         }
 `;

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 export const BlogWrapper = styled.div`
+    position: relative;
+    height: calc(100vh - 100px);
     .Box{   
         border-bottom: 1px solid ${({ theme }) => theme.Page.Users.Border}1f;
         display: flex;
@@ -80,5 +82,18 @@ export const BlogWrapper = styled.div`
              }
         }
     }
+}
+.ant-spin, .ant-spin-spinning{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
+    width: fit-content;
+}
+.ant-spin-container::after {
+    background: #419fe4;
 }
 `;

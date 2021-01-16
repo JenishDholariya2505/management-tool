@@ -30,7 +30,6 @@ export const TaskManageWrapper = styled.div`
 export const NewTaskWrapper = styled.div`
 height: calc(100vh - 143px);
 padding: 0px 10px;
-overflow: auto;
 @media only screen and (max-width: 950px) {
     .Labalset{
         margin-left: 0px !important;
@@ -73,10 +72,6 @@ overflow: auto;
         padding: 10px;
         border: 1px solid ${({ theme }) => theme.TaskManagement.Border}66;
         min-height: 100px !important;
-        .Datepiker{
-            padding: 0px 0px 0px 20px;
-            margin-bottom: 10px;
-        }
         .ant-col, .ant-form-item-control{
             height: 53px;
         }
@@ -158,11 +153,6 @@ overflow: auto;
             .ant-select{
                 margin-right: 10px;
             }
-        }
-    }
-    .Datepiker{
-        input{
-            border: 1px solid transparent !important;
         }
     }
 `;

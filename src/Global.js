@@ -13,15 +13,16 @@ body{
   display: flex !important;
 }
 ::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
+  width: 2px;
+  height: 2px;
 }
 ::-webkit-scrollbar-track {
-  background: #0000; 
+  background: #2b2b2b;
 }
  
 ::-webkit-scrollbar-thumb {
   background: #429FE4; 
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #32739B; 
@@ -35,17 +36,33 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.ant-picker-cell-in-range-hover-start::before{
+  background: red;
+}
+.Up > span{
+  margin: 0px 10px;
+}
+.ant-upload.ant-upload-select {
+  margin: 5px 0px 0px;
+}
 .Up{
+  overflow: auto;
+  width: calc(100vw - 140px);
+  margin: 0px 10px;
   .ant-upload-list-item-name{
     color: ${({ theme }) => theme.Modal.HadText};
     line-height: 25px;
     font-size: 12px;
     font-family: Roboto-Light;
   }
-  .ant-upload-list-item:hover, .ant-upload-list-item-info:hover{
+  .ant-upload-list-text-container{
+    margin: 0px 5px;
+  }
+  .ant-upload-list-item:hover{
     background-color: transparent !important;
   }
   .ant-upload-list, .ant-upload-list-text{
+      margin: 10px 0px 0px;
       display: flex;
       overflow-x: auto;
       overflow-y: hidden;
@@ -515,6 +532,33 @@ input::-webkit-inner-spin-button {
   border-color: transparent;
   color: ${({ theme }) => theme.Meeting.CardTitle}85;
   opacity: 0.57;
+}
+
+.Datepiker{
+  .ant-picker-range{
+    background-color: ${({ theme }) => theme.Meeting.CreateMeeting.InputBG};
+    border: 1px solid ${({ theme }) => theme.Meeting.CreateMeeting.InputBorder}2b;
+    color: ${({ theme }) => theme.Meeting.CreateMeeting.Title};
+    .anticon-swap-right{
+      color: ${({ theme }) => theme.Page.Users.ButtonBG};
+  }
+  .ant-picker-input > input{
+    color: ${({ theme }) => theme.TaskManagement.Tital}bf !important;
+}
+  }
+  padding: 0px 0px 0px 20px;
+  margin-bottom: 10px;
+  font-family: 'Roboto-Regular';
+  font-size: 12px;
+  color: ${({ theme }) => theme.TaskManagement.Tital}bf;
+  input{
+    border: 1px solid transparent !important;
+}
+}
+.selectover{
+  .ant-select-selection-item-remove{
+    line-height: 26px !important;
+  }
 }
   `;
 export default GlobalStyles;

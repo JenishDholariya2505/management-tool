@@ -82,12 +82,12 @@ export const DarkThemes = {
         Border: "#313131",
     },
     TaskManagement: {
-       Tital: '#E5E5E5',
-       TextBG: '#222222',
-       Border: '#475C6B',
-       FileChip: '#1B1D1F',
-       UploadBTN: '#4c4d4f',
-       InputNumber: '#222222',
+        Tital: '#E5E5E5',
+        TextBG: '#222222',
+        Border: '#475C6B',
+        FileChip: '#1B1D1F',
+        UploadBTN: '#4c4d4f',
+        InputNumber: '#222222',
     },
 
     Upload: {
@@ -109,8 +109,11 @@ export const DarkThemes = {
         CardBG: '#252A2F',
         Closebtn: '#1F2022',
         CloseBorder: '#54585A',
-        CreateMeeting:{
-            Title: '#E5E5E5'
+        CreateMeeting: {
+            Title: '#E5E5E5',
+            InputBG: '#222222',
+            InputBorder: '#E8E8E8',
+            InputPlassholder: '#979797'
         }
     }
 }
