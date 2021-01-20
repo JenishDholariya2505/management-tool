@@ -64,6 +64,7 @@ export const MeetingWrapper = styled.div`
                     }
                     .Right{
                         padding-top: 5px;
+                        display: flex;
                         .IconsM{
                             margin: 0px 5px;
                         }
@@ -220,5 +221,19 @@ export const MeetingCreateWrapper = styled.div`
                     font-weight: 400;
                 }
             }
+        }
+        .SelectOver{
+            .ant-form-item-explain-error{
+                margin-left: 20px !important;
+            }
+            .ant-select-selector{
+                background-color: ${({ theme }) => theme.Meeting.CreateMeeting.InputBG} !important;
+                color: ${({ theme }) => theme.Meeting.CreateMeeting.Title};
+            }
+        }
+        .error{
+            color: #ff4d4f;
+            margin-left: 20px;
+            font-size: 12px;
         }
 `;

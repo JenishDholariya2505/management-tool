@@ -77,10 +77,10 @@ const Blog = () => {
                                 </div>
                                 <div className='Modify'>
                                     <JDTooltip placement="bottom" title={'Edit Post'}>
-                                        <Icons type='Edit' style={{ marginRight: '5px', cursor: 'pointer' }} />
+                                        <Icons type='Edit' style={{ marginRight: '5px' }} />
                                     </JDTooltip>
                                     <JDTooltip placement="bottom" title={'Delete Post'}>
-                                        <Icons type='Delete' style={{ marginRight: '5px', cursor: 'pointer' }} onClick={() => Modal(d)} />
+                                        <Icons type='Delete' style={{ marginRight: '5px' }} onClick={() => Modal(d)} />
                                     </JDTooltip>
                                 </div>
                             </div>

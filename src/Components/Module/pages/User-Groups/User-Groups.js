@@ -18,7 +18,6 @@ const UserGroups = () => {
         dispatch(groupGet())
         dispatch(getUsers())
     }, [dispatch])
-
     useEffect(() => {
         if (ListGroup.Find !== undefined) {
             SetEdit(ListGroup.Find)
@@ -86,10 +85,10 @@ const UserGroups = () => {
             render: (e) => (
                 <JDSpace size="middle">
                     <JDTooltip placement="bottom" title={'Edit Group'}>
-                        <Icons type='Edit' style={{ marginRight: '5px', cursor: 'pointer' }} onClick={() => EditModal(e)} />
+                        <Icons type='Edit' style={{ marginRight: '5px' }} onClick={() => EditModal(e)} />
                     </JDTooltip>
                     <JDTooltip placement="bottom" title={'Delete Group'}>
-                        <Icons type='Delete' style={{ marginRight: '5px', cursor: 'pointer' }} onClick={() => Delete(e)} />
+                        <Icons type='Delete' style={{ marginRight: '5px' }} onClick={() => Delete(e)} />
                     </JDTooltip>
                 </JDSpace>
             ),
@@ -100,7 +99,7 @@ const UserGroups = () => {
             <div className='d-flex Box'>
                 <JDDescriptions title="User-Groups" />
                 <JdButton tital='Create' className='ant-btn' onClick={AddModal} />
-                <NewGroup loading={ListGroup.status} clr={ListGroup.getData} data={ModalVar.EditM ? Edit : null} User={ListGroup} visible={ModalVar.CreateM} onCreate={ModalVar.EditM ? EditAction : UseAddAction} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} close={CloseModal} />
+                <NewGroup loading={ListGroup.status} clr={ListGroup.getData} data={ModalVar.EditM ? Edit : null} User={ListGroup.User} visible={ModalVar.CreateM} onCreate={ModalVar.EditM ? EditAction : UseAddAction} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} close={CloseModal} />
             </div>
             <div>
                 <div>

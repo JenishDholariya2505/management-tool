@@ -12,8 +12,8 @@ export default class Sidebar extends Component {
       <SidebarWrapper>
         <JdMenu style={{ width: "60px" }} inlineCollapsed={true} mode="inline">
           {Panel.Modual.map((d, i) => (
-            <JdMenu.Item key={i} icon={<Icons type={d} />} title={d} className={d === bradCrumb ? 'ant-menu-item-selected' : 'ant-menu-item'}>
-              <Link to={"/ZeronSec/" + d} onClick={() => { menuBTN(d) }} />
+            <JdMenu.Item key={i} icon={<Icons type={d} />} title={d} className={d === bradCrumb ? 'selected' : 'ant-menu-item'}>
+              <Link title='' to={"/ZeronSec/" + d} onClick={() => { menuBTN(d) }} />
             </JdMenu.Item>
           ))}
         </JdMenu>

@@ -24,6 +24,19 @@ width: calc(100vw - 102px);
 }
 }
 .ant-table{
+    .ant-table-expanded-row-fixed{
+        height: calc(100vh - 263px) !important;
+        .ant-empty, .ant-empty-normal{
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            position: absolute;
+        }
+    }
     color: ${({ theme }) => theme.Modal.BodyText}84;
     background-color: ${({ theme }) => theme.Table.Back};
     .ant-table-thead > tr > th{

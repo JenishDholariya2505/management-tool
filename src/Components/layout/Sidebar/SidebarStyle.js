@@ -7,12 +7,12 @@ export const SidebarWrapper = styled.div`
         overflow: auto;
         height: calc(100vh - 100px);
         border-right: none;
-        .ant-menu-item-selected{
+        .selected{
             background-color: ${({ theme }) => theme.Dash.Saidbar.MenuBG};
             border: 1px solid ${({ theme }) => theme.Dash.Saidbar.Select};
         }
         ;
-        .ant-menu-item-selected, .ant-menu-item:hover{
+        .selected, .ant-menu-item:hover{
             svg{
                 path{
                     fill: ${({ theme }) => theme.Dash.Saidbar.IconColor} !important;

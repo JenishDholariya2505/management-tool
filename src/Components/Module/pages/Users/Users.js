@@ -72,7 +72,9 @@ const Users = () => {
             dataIndex: 'designation',
             key: 'designation',
             width: 70,
-            ellipsis: true,
+            ellipsis: {
+                showTitle: false,
+            },
         },
         {
             title: 'Email',
@@ -84,28 +86,41 @@ const Users = () => {
             dataIndex: 'email',
             key: 'email',
             width: 60,
-            ellipsis: true,
+            ellipsis: {
+                showTitle: false,
+            },
         },
         {
             title: 'Contact',
             dataIndex: 'contact',
             key: 'contact',
             width: 40,
-            ellipsis: true,
+            ellipsis: {
+                showTitle: false,
+            },
         },
         {
             title: 'User ID',
             dataIndex: 'username',
             key: 'username',
             width: 40,
-            ellipsis: true,
+            ellipsis: {
+                showTitle: false,
+            },
         },
         {
             title: 'Created Time',
             dataIndex: 'createdTime',
             key: 'createdTime',
             width: 45,
-            ellipsis: true,
+            ellipsis: {
+                showTitle: false,
+            },
+            render: createdTime => (
+                <JDTooltip placement="topLeft" title={createdTime}>
+                    {createdTime}
+                </JDTooltip>
+            ),
         },
         {
             title: 'Action',
@@ -115,10 +130,10 @@ const Users = () => {
             render: (e, d) => (
                 <JDSpace size="middle" key='0'>
                     <JDTooltip placement="bottom" key='0' title={'Edit User'}>
-                        <Icons type='Edit' style={{ marginRight: '5px', cursor: 'pointer' }} onClick={() => edit(d)} />
+                        <Icons type='Edit' style={{ marginRight: '5px' }} onClick={() => edit(d)} />
                     </JDTooltip>
                     <JDTooltip placement="bottom" key='1' title={'Delete User'}>
-                        <Icons type='Delete' style={{ marginRight: '5px', cursor: 'pointer' }} onClick={() => Delete(e)} />
+                        <Icons type='Delete' style={{ marginRight: '5px' }} onClick={() => Delete(e)} />
                     </JDTooltip>
                 </JDSpace>
             )

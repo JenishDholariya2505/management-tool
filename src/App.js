@@ -18,6 +18,7 @@ export default class App extends Component {
   }
   render() {
     const { Mode } = this.state
+    localStorage.setItem("Token", 'asdasdasd')
     return (
       <Provider store={store}>
         <ThemeProvider theme={Themes[Mode !== 'Dark' ? 'DarkThemes' : 'LightTheme']}>

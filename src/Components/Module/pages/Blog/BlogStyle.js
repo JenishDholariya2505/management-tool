@@ -84,16 +84,18 @@ export const BlogWrapper = styled.div`
     }
 }
 .ant-spin, .ant-spin-spinning{
+    background: #419fe433;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 9pc);
+    z-index: 9;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: fit-content;
-    width: fit-content;
-}
-.ant-spin-container::after {
-    background: #419fe4;
+    .ant-spin-dot, .ant-spin-dot-spin{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
 }
 `;

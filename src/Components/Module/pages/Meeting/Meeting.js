@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MeetingWrapper } from './MeetingStyle'
-import { JDDescriptions, JdFormComponents, Icons } from '../../components/Index';
+import { JDDescriptions, JdFormComponents, Icons, JDTooltip } from '../../components/Index';
 import { MeetingData } from '../../../../Core/Helper/Data';
 import { Link } from 'react-router-dom'
 import MeetingRemove from './MeetingRemove'
@@ -56,9 +56,15 @@ export default function Meeting() {
                                             <span className='FTitle'>{Arranged.meetingOwner}</span>
                                         </div>
                                         <div className='Right'>
-                                            <Icons className='IconsM' onClick={() => schedule(Arranged)} style={{ cursor: 'pointer' }} type='Job_Time' />
-                                            <Icons className='IconsM' type='Edit' />
-                                            <Icons onClick={() => Remove(Arranged)} className='IconsM' type='Delete' style={{ cursor: 'pointer' }} />
+                                            <JDTooltip placement="bottom" title='Reschedule'>
+                                                <Icons className='IconsM' onClick={() => schedule(Arranged)} type='Reschedule' />
+                                            </JDTooltip>
+                                            <JDTooltip placement="bottom" title='Edit'>
+                                                <Icons className='IconsM' type='Edit' />
+                                            </JDTooltip>
+                                            <JDTooltip placement="bottom" title='Delete'>
+                                                <Icons onClick={() => Remove(Arranged)} className='IconsM' type='Delete' />
+                                            </JDTooltip>
                                         </div>
                                     </div>
                                 </div>

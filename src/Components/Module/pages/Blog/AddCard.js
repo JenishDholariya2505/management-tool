@@ -46,8 +46,11 @@ const AddCard = ({ visible, onCreate }) => {
         },
     };
     const Close = () => {
-        form.resetFields();
-        onCreate()
+        // form.resetFields();
+        // onCreate()
+        form.setFieldsValue({
+            Content: ['jenish', 'asdasd']
+        });
     }
     return (
         <JDModal
@@ -89,7 +92,7 @@ const AddCard = ({ visible, onCreate }) => {
                             <JdButton className='Select' name='ViewImg' style={{ marginRight: '5px' }} tital='Select' />
                         </JdUpload>
                     </JdForm.Item>
-                    <JdForm.Item  className='SelectHash' name="HashTAG" label="Hashtags" rules={[{ type: 'array', whitespace: true, required: true, message: 'Enter Hashtags' }]}>
+                    <JdForm.Item className='SelectHash' name="HashTAG" label="Hashtags" rules={[{ type: 'array', whitespace: true, required: true, message: 'Enter Hashtags' }]}>
                         <JdSelect name="HashTAG" mode="tags" style={{ width: '100%' }} placeholder="Hashtags">
                             {children}
                         </JdSelect>

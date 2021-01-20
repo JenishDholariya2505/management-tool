@@ -115,5 +115,16 @@ export const DarkThemes = {
             InputBorder: '#E8E8E8',
             InputPlassholder: '#979797'
         }
+    },
+    Notes: {
+        NoteBG: '#48555F',
+        NoteBorder: '#88CDFF',
+        NoteLine: '#a0a4a6',
+        InputPlce: '#9DA8AD',
+        Text: '#FFFFFF',
+        Title: '#88CDFF',
+        CardBG: '#252A2F',
+        BodyText: '#E5E5E5',
+        Footertext: '#88CDFF',
     }
 }

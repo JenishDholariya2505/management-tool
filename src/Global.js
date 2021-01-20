@@ -4,6 +4,25 @@ export const GlobalStyles = createGlobalStyle`
 body{
   overflow: hidden;
 }
+.JDForm{
+    position: relative;
+    height: 76px;
+  .ant-form-item-control-input{
+    height: 37px !important;
+  }
+   .ant-form-item-explain{
+    min-height: 24px !important;
+  }
+}
+.Radiobtn{
+  height: 119px !important;
+  .ant-col, .ant-form-item-control{
+    margin-top: 5px;
+  }
+  .ant-form-item-explain, .ant-form-item-explain-error{
+    margin-top: 5px;
+  }
+}
 .ant-tooltip-inner, .ant-tooltip-arrow-content {
   color: ${({ theme }) => theme.TooltipText};
   background-color: ${({ theme }) => theme.TooltipBG};
@@ -17,7 +36,7 @@ body{
   height: 2px;
 }
 ::-webkit-scrollbar-track {
-  background: #2b2b2b;
+  background: #2b2b2b00;
 }
  
 ::-webkit-scrollbar-thumb {
@@ -140,12 +159,21 @@ input::-webkit-inner-spin-button {
           font-size: 12px;
         }
         .Passwordfiled{
+          .ant-input-password-icon{
+            color: ${({ theme }) => theme.Modal.HadText} !important;
+          }
+          .ant-input-suffix{
+            position: inherit;
+          }
+          .ant-form-item-children-icon{
+            top: 23px;
+          }
           input{
             height: 30px;
             top: -11px;
           }
           .ant-form-item-children-icon{
-            top: 25px;
+            top: 23px;
           }
           .ant-input-affix-wrapper{
             border-radius: 6px;
@@ -558,6 +586,11 @@ input::-webkit-inner-spin-button {
 .selectover{
   .ant-select-selection-item-remove{
     line-height: 26px !important;
+  }
+}
+.SelectOver{
+  .ant-form-item-has-error .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input) .ant-select-selector {
+    border-color: ${({ theme }) => theme.Meeting.CreateMeeting.InputBorder}2b !important;
   }
 }
   `;

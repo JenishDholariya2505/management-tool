@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MeetingWrapper, MeetingCreateWrapper } from './MeetingStyle'
 import { JDDescriptions, JdFormComponents, Icons, JdDatepicker, JdUpload, JdSelect } from '../../components/Index';
 import { Link } from 'react-router-dom'
 import { Form, Input } from 'antd'
+import moment from 'moment';
 const { JdButton, JdForm, JdInput } = JdFormComponents
 const { TextArea } = Input;
 
 export default function CreateMeeting() {
     const [form] = Form.useForm();
     const [Chip, setChip] = useState([])
+    const [UserError, setUserError] = useState({ Error: 'Select User' })
+    const [Status, setStatus] = useState(false)
     const onCreate = values => {
         window.location.assign('/ZeronSec/Meeting')
     }
@@ -22,21 +25,32 @@ export default function CreateMeeting() {
         },
     }
     const handleProvinceChange = (value) => {
-        let group = value
-        setChip(group)
+        setChip(value)
     }
+    useEffect(() => {
+        if (Status === true && Chip.length === 0) {
+            setUserError({ Error: 'Select User' })
+        } else {
+            setUserError({ Error: '' })
+        }
+    }, [Chip.length, Status])
     const Remove = (i) => {
-
         setChip(Chip.splice(i, 0))
         setChip(Chip.filter(d => d !== i))
     }
+    const submit = () => {
+        setStatus(true)
+    }
     const User = [{ value: 'High' }, { value: 'Normal' }, { value: 'Low' }];
+    const disabledDate = (current) => {
+        return current && current < moment().endOf('day');
+    }
     return (
         <div>
             <MeetingWrapper>
                 <div className='d-flex Box'>
                     <JDDescriptions title="New Meeting" />
-                    <JdButton onClick={() => { form.validateFields().then((values) => { onCreate(values); }).catch((info) => { console.log('Validate Failed:', info); }); }} tital='Save' />
+                    <JdButton onClick={() => { form.validateFields().then((values) => { onCreate(values); submit(); }).catch((info) => { console.log('Validate Failed:', info); submit(); }); }} tital='Save' />
                     <Link to='/ZeronSec/Meeting'>
                         <JdButton tital='Cancle' className='Closebtn' />
                     </Link>
@@ -45,13 +59,23 @@ export default function CreateMeeting() {
             <MeetingCreateWrapper>
                 <div className='Details'>
                     <span className='Tital'>Details</span>
-                    <JdForm form={form} style={{ padding: '0px 30px' }}>
-                        <JdForm.Item hasFeedback label="Meeting Subject :" name="meetingSubject" rules={[{ required: true, message: 'Enter Meeting Subject', whitespace: true }]}>
-                            <JdInput placeholder='Enter Meeting Subject' />
+                    <JdForm form={form} style={{ padding: '0px 30px' }} initialValues={{ remember: true }}>
+                        <JdForm.Item hasFeedback label="Meeting Subject" name='meetingsubject' rules={[{ required: true, message: 'Meeting Subject is required' }, () => ({
+                            validator(rule, value) {
+                                let NameValid = /^[^\s]+[-a-zA-Z\s]*$/
+                                if (NameValid.test(value)) {
+                                    return Promise.resolve();
+                                } else if (value !== '') {
+                                    return Promise.reject('invalid Meeting Subject');
+                                } else {
+                                    return Promise.resolve();
+                                }
+                            },
+                        })]}>
+                            <JdInput autoComplete="off" placeholder='Enter User Name' />
                         </JdForm.Item>
                         <JdForm.Item hasFeedback label="Description" name="TaskSubject" rules={[{ required: true, message: 'Enter Meeting Description', whitespace: true }]}>
-                            {/* <JdInput placeholder='Enter Meeting Description' /> */}
-                            <TextArea name='address' autoSize={{ minRows: 3, maxRows: 4 }} placeholder="Enter Address" />
+                            <TextArea name='address' autoSize={{ minRows: 3, maxRows: 4 }} placeholder="Enter Meeting Description" />
                         </JdForm.Item>
                         <div className='d-flex' style={{ justifyContent: 'space-between' }}>
                             <JdForm.Item className='Description' hasFeedback label="Project Name" name="projectName" rules={[{ required: true, message: 'Enter Project Name', whitespace: true }]}>
@@ -65,11 +89,12 @@ export default function CreateMeeting() {
                             </JdForm.Item>
                         </div>
                         <JdForm.Item style={{ width: '50vw', display: 'flex' }} hasFeedback label="Meeting Duration" name="DatePicker" rules={[{ required: true, message: 'Enter Meeting Duration' }]}>
-                            <JdDatepicker suffixIcon={<Icons type='DatePicker' />} style={{ width: '100%' }} showTime />
+                            <JdDatepicker disabledDate={disabledDate}
+                                suffixIcon={<Icons type='DatePicker' />} style={{ width: '100%' }} showTime />
                         </JdForm.Item>
                     </JdForm>
                 </div>
-                <div className='Details' style={{ padding: '10px 15px', height: '119px' }}>
+                <div className='Details' style={{ height: '119px' }}>
                     <span className='Tital'>Attendees</span>
                     <JdSelect
                         placeholder='Select Users'
@@ -78,15 +103,16 @@ export default function CreateMeeting() {
                         value={Chip}
                         onChange={handleProvinceChange}
                         className='ant-col-10'
-                        style={{ minWidth: '200px' }}
+                        style={{ minWidth: '200px', marginLeft: '20px' }}
                         options={User}
                     />
-                    <div className='chip' style={{ marginTop: '15px' }}>
+                    <span className='error'>{UserError.Error}</span>
+                    <div className='chip' style={{ marginLeft: '15px' }}>
                         {
                             Chip.map((d, i) => (
                                 <div key={i} className='chipbody'>
                                     <span>{d}</span>
-                                    <span>{<Icons onClick={() => Remove(d)} style={{ margin: '3px 0px 0px -10px', position: 'relative', cursor: 'pointer' }} type='close' />}</span>
+                                    <span>{<Icons onClick={() => Remove(d)} style={{ top: '2px', position: 'relative', cursor: 'pointer' }} type='close' />}</span>
                                 </div>
                             ))
                         }
@@ -109,6 +135,7 @@ export default function CreateMeeting() {
                     </div>
                 </div>
             </MeetingCreateWrapper>
-        </div>
+        </div >
     )
 }
+

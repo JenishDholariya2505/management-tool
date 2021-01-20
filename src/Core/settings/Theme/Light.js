@@ -108,5 +108,11 @@ export const LightTheme = {
         CardBG: '#252A2F',
         Closebtn: '#1F2022',
         CloseBorder: '#54585A',
+        CreateMeeting: {
+            Title: '#E5E5E5',
+            InputBG: '#222222',
+            InputBorder: '#E8E8E8',
+            InputPlassholder: '#979797'
+        }
     }
 }

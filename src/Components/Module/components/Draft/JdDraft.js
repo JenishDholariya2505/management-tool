@@ -72,7 +72,7 @@ export class JdDraft extends Component {
               editorState={editorState}
               onToggle={this.toggleBlockType}
             />
-            <StyleBTN
+            <StyleSize
               editorState={editorState}
               onToggle={this.toggleInlineStyle}
             />
@@ -232,9 +232,9 @@ const InlineStyleControls = (props) => {
   );
 };
 
-class StyleBTN extends React.Component {
-  constructor() {
-    super();
+class StyleSize extends React.Component {
+  constructor(props) {
+    super(props);
     this.onToggle = (e) => {
       this.props.onToggle(e);
     };
@@ -256,10 +256,11 @@ class StyleBTN extends React.Component {
     return (
       <JdSelect onSelect={this.onToggle} style={{ marginTop: '5px' }} defaultValue={'12px'}>
         {INLINE_FONT.map((type, i) => (
-          <JdOption key={i} value={type.style}>{type.label}</JdOption>
+          <JdOption key={i} value={type.style}>
+              {type.label}
+          </JdOption>
         ))}
       </JdSelect>
     );
   }
 }
-

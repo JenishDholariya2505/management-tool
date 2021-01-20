@@ -9,7 +9,6 @@ const initState = {
 };
 
 export default (state = initState, action) => {
-    console.log(action.type, 'action')
     switch (action.type) {
         case "GROUP_GET_REQUEST":
             return (
@@ -198,7 +197,6 @@ export default (state = initState, action) => {
                 }
             )
         case "GROUP_GET_USER_SUCCESS":
-            JdSuccess({ text: action.payload.message })
             return (
                 state = {
                     ...state,
@@ -218,7 +216,6 @@ export default (state = initState, action) => {
                 }
             )
         case "GROUP_GET_USER_ERROR_FAIL":
-            JDNotification({ mes: action.payload })
             return (
                 state = {
                     ...state,

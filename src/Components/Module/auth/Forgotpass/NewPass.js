@@ -40,10 +40,10 @@ export default function NewPass() {
                             initialValues={{ remember: true }}
                             onFinish={onFinish}>
                             <JdForm.Item hasFeedback label="New Password" name="newpassword" rules={[{ required: true, message: 'Please input your password!' }]}
-                                hasFeedback >
+                                 >
                                 <JdInput.Password autoComplete="off" placeholder='Enter New Password' />
                             </JdForm.Item>
-                            <JdForm.Item hasFeedback name='confirmpassword'
+                            <JdForm.Item  name='confirmpassword'
                                 label="Confirm Password"
                                 hasFeedback
                                 dependencies={['newpassword']}
