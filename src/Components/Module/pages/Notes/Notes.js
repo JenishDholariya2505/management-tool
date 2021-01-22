@@ -7,7 +7,7 @@ const { JdButton, JdForm } = JdFormComponents
 
 export default function Notes() {
     const [form] = Form.useForm();
-    const [Note, setNote] = useState([])
+    const [Note, setNote] = useState({})
     const [Final, setFinal] = useState([])
     const [Remove, setRemove] = useState(false)
     const [Index, setIndex] = useState(null)
@@ -18,14 +18,24 @@ export default function Notes() {
     }, [Remove])
 
     const Dataset = (e) => {
-        setNote([{
+        // let j = e.target.value.split(`\n`)
+        // let d = j.join(`@`)
+        // let x = d.split(`@`)
+        // console.log(x, 'asd')
+        setNote({
             User: 'John Smith',
             Time: '12 January 2021, 06:33',
-            Note: e.target.value.split(`\n`)
-        }])
+            Note: e.target.value
+        })
+        // console.log(e.target.value)
+        // setNote(e.target.value)
     }
     const CreateNote = () => {
-        setFinal(Final.concat(Note))
+        console.log(Note)
+        // console.log(typeof(Note))
+        Final.push(Note)
+        console.log(Final)
+        setNote({})
         form.resetFields();
     }
     const RemoveNoteModal = (i) => {
@@ -45,15 +55,15 @@ export default function Notes() {
         setIndex(i)
         setEditNoteD(true)
         form.setFieldsValue({
-            textNote: data.Note.join(`\n`)
+            textNote: data.Note
         });
     }
     const Update = () => {
-        Final[Index]['Note'] = Note[0].Note
+        Final[Index]['Note'] = Note.Note
         form.resetFields();
         setEditNoteD(false)
+        setNote({})
     }
-    // console.log(Final, 'Finalasd')
     return (
         <NoteWrapper>
             <div className='d-flex Box'>
@@ -84,9 +94,10 @@ export default function Notes() {
                                     <div key={i} className='Card'>
                                         <div className='Body'>
                                             {
-                                                d.Note.map((text, index) => (
-                                                    <span key={index} className='bodytext'>{text}</span>
-                                                ))
+                                                d.Note.split(/\n/)
+                                                    .map((text, index) => (
+                                                        <div key={index} className='bodytext'>{text}</div>
+                                                    ))
                                             }
                                         </div>
                                         <div className='Footer'>

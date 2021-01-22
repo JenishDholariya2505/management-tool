@@ -10,8 +10,8 @@ const Dependency = {
   }
 }
 
-const Auth = axios.create({
-  baseURL: 'http://10.1.1.20:8080/',
+const All_BE = axios.create({
+  baseURL: 'http://10.1.1.20:8085/',
   Dependency
 })
 const User_API = axios.create({
@@ -24,4 +24,4 @@ const Group_API = axios.create({
   Dependency
 })
 
-export { Auth, User_API, Group_API };
+export { All_BE, User_API, Group_API };

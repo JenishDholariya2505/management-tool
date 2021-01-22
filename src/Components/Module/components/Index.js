@@ -14,6 +14,7 @@ import JdUpload from './JDUpload/JdUpload';
 import JdDatepicker from './JdDatepicker/JdDatepicker';
 import { JdDraft } from './Draft/JdDraft';
 import { JDNotification, JdSuccess } from './JdNotification/JdNoti';
+import * as JdChart from './Chart/index';
 
 export {
     Icons,
@@ -34,4 +35,5 @@ export {
     JdDraft,
     JDNotification,
     JdSuccess,
+    JdChart,
 }

@@ -115,8 +115,11 @@ export const NoteWrapperNote = styled.div`
                         border-radius: 5px;
                         position: relative;
                         .Body{
-                            padding: 10px;
+                            padding: 0px 10px 10px;
                             display: grid;
+                            overflow: auto;
+                            height: 75px;
+                            margin-top: 6px;
                             .bodytext{
                                 color: ${({ theme }) => theme.Notes.BodyText};
                                 font-family: 'Roboto-Regular';

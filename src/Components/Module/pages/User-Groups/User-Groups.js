@@ -25,7 +25,7 @@ const UserGroups = () => {
         }
         if (ListGroup.getData) { CloseModal() }
     }, [ListGroup.getData, ListGroup.Find])
-
+    console.log(ListGroup, 'ListGroup')
     useEffect(() => {
         document.getElementById('root').style.filter = ModalVar.CreateM || ModalVar.EditM || ModalVar.DeleteM ? 'blur(10px)' : 'blur(0px)';
     }, [ModalVar])

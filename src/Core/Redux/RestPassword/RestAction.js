@@ -1,5 +1,7 @@
 import { Axios } from '../AxiosLogic';
-import { Auth } from '../AxiosBase';
+import { All_BE } from '../AxiosBase';
+
+let Auth = All_BE
 
 export const LoginAPI = (user) => {
     return async (dispatch) => {

@@ -11,7 +11,6 @@ export const SidebarWrapper = styled.div`
             background-color: ${({ theme }) => theme.Dash.Saidbar.MenuBG};
             border: 1px solid ${({ theme }) => theme.Dash.Saidbar.Select};
         }
-        ;
         .selected, .ant-menu-item:hover{
             svg{
                 path{
@@ -22,6 +21,9 @@ export const SidebarWrapper = styled.div`
         .ant-menu-item-icon > svg > path {
             fill: ${({ theme }) => theme.Dash.Saidbar.NorIconColor};
         }
+    }
+    .ant-menu-item-selected{
+        background-color: ${({ theme }) => theme.Dash.Saidbar.MenuBG} !important;
     }
     .ant-menu-item, .ant-menu-item-selected{
         border: 1px solid transparent;

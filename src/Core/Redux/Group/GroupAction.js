@@ -1,5 +1,7 @@
 import { Axios } from '../AxiosLogic';
-import { Group_API } from '../AxiosBase';
+import { All_BE } from '../AxiosBase';
+
+let Group_API = All_BE
 
 export const groupGet = () => {
     return async (dispatch) => {

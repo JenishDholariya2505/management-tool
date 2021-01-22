@@ -143,3 +143,71 @@ export const MeetingData = {
         }
     ]
 }
+
+
+export const Dataset = {
+    "name": "Root",
+    "children": [
+        {
+            "name": "A1",
+            "children": [
+                { "name": "B1", "size": 30 },
+                { "name": "B2", "size": 40 },
+                {
+                    "name": "B3",
+                    "children": [
+                        { "name": "C1", "size": 10 },
+                        { "name": "C2", "size": 15 }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "D4",
+            "children": [
+                { "name": "D1", "size": 30 },
+                { "name": "D2", "size": 40 },
+            ]
+        },
+
+    ]
+}
+// export const Dataset = {
+//     "name": "flare",
+//     "children": [
+//         {
+//             "name": "analytics",
+//             "children": [
+//                 {
+//                     "name": "cluster",
+//                     "children": [
+//                         { "name": "AgglomerativeCluster", "size": 3938 },
+//                         { "name": "CommunityStructure", "size": 3812 },
+//                         { "name": "HierarchicalCluster", "size": 6714 },
+//                         { "name": "MergeEdge", "size": 743 }
+//                     ]
+//                 },
+//                 {
+//                     "name": "graph",
+//                     "children": [
+//                         { "name": "BetweennessCentrality", "size": 3534 },
+//                         { "name": "LinkDistance", "size": 5731 },
+//                         { "name": "MaxFlowMinCut", "size": 7840 },
+//                         { "name": "ShortestPaths", "size": 5914 },
+//                         { "name": "SpanningTree", "size": 3416 }
+//                     ]
+//                 },
+//                 {
+//                     "name": "optimization",
+//                     "children": [
+//                         { "name": "AspectRatioBanker", "size": 7074 },
+//                         {
+//                             "children": [{ "name": "AspectRatioBanker", "size": 7074 },]
+//                         },
+//                     ]
+//                 }
+//             ]
+//         },
+//     ],
+// }
+

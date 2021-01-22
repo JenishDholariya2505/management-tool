@@ -1,5 +1,8 @@
 import { Axios } from '../AxiosLogic';
-import { User_API } from '../AxiosBase';
+import { All_BE } from '../AxiosBase';
+
+let User_API = All_BE
+
 export const userGet = () => {
     return async (dispatch) => {
         dispatch(
