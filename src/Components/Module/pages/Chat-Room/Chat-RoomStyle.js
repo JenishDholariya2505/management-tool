@@ -21,4 +21,29 @@ export const ChartRoomWrapper = styled.div`
         }
     }
 }
+.Chart{
+    width: fit-content;
+    background-color: ${({ theme }) => theme.Dash.Saidbar.Bg};
+    margin: 20px 10px 0px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    #legend1, #legend2{
+        cursor: pointer;
+        overflow: auto;
+        padding: 5px 5px 0px;
+        transition: 0.5s;
+        position: relative;
+        width: 83px;
+        height: 34vh;
+    }
+    #legend1 > div, #legend2 > div{
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        height: fit-content;
+        margin: auto;
+    }
+}
 `;

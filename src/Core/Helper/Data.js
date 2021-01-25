@@ -143,8 +143,8 @@ export const MeetingData = {
         }
     ]
 }
-
-
+export const Gradient1 = ['#46B1E0', '#6ADBD8', '#FCD87E', '#FC8DA8', '#B49FF4', '#ADC159', '#C2FFFC', '#FFDAC7', '#EA9F92', '#46B1E0']
+export const Gradient2 = ['#185AC9', '#0C7A74', '#AD7F0C', '#AD3A55', '#654FAA', '#73871F', '#9399FF', '#E7989A', '#AF452F', '#185AC9']
 export const Dataset = {
     "name": "Root",
     "children": [
@@ -157,7 +157,7 @@ export const Dataset = {
                     "name": "B3",
                     "children": [
                         { "name": "C1", "size": 10 },
-                        { "name": "C2", "size": 15 }
+                        { "name": "C2", "size": 15 },
                     ]
                 }
             ]
@@ -169,45 +169,5 @@ export const Dataset = {
                 { "name": "D2", "size": 40 },
             ]
         },
-
     ]
 }
-// export const Dataset = {
-//     "name": "flare",
-//     "children": [
-//         {
-//             "name": "analytics",
-//             "children": [
-//                 {
-//                     "name": "cluster",
-//                     "children": [
-//                         { "name": "AgglomerativeCluster", "size": 3938 },
-//                         { "name": "CommunityStructure", "size": 3812 },
-//                         { "name": "HierarchicalCluster", "size": 6714 },
-//                         { "name": "MergeEdge", "size": 743 }
-//                     ]
-//                 },
-//                 {
-//                     "name": "graph",
-//                     "children": [
-//                         { "name": "BetweennessCentrality", "size": 3534 },
-//                         { "name": "LinkDistance", "size": 5731 },
-//                         { "name": "MaxFlowMinCut", "size": 7840 },
-//                         { "name": "ShortestPaths", "size": 5914 },
-//                         { "name": "SpanningTree", "size": 3416 }
-//                     ]
-//                 },
-//                 {
-//                     "name": "optimization",
-//                     "children": [
-//                         { "name": "AspectRatioBanker", "size": 7074 },
-//                         {
-//                             "children": [{ "name": "AspectRatioBanker", "size": 7074 },]
-//                         },
-//                     ]
-//                 }
-//             ]
-//         },
-//     ],
-// }
-
