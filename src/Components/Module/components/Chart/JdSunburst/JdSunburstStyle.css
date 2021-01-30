@@ -28,10 +28,6 @@
             border: 2px solid #ffffffb8;
             pointer-events: none;
         }
-        .li-item-hover{
-            background-color: #ffffff26;
-            transition: 0.5s;
-        }
         .main-archover{
             fill: rgb(255, 0, 0);
         }
@@ -43,4 +39,25 @@
             margin: auto;
             height: fit-content;
         }
-    
+        .legend:hover, .li-item-hover{
+            background-color: #ffffff26;
+            border: 1px solid #419fe461;
+            transition: 0.5s;
+        }
+        .main-arc{
+            animation: 1.5s draw linear forwards;
+        }
+        @keyframes draw {
+            0% {
+                stroke-width: 5px;
+            stroke: #201f1f;
+            stroke-dashoffset: 100%;
+            stroke-dasharray: 200%;
+            }
+            100% {
+                stroke-width: 0px;
+            stroke: #201f1f;
+            stroke-dashoffset: 0%;
+            stroke-dasharray: 0%;
+            }
+          }

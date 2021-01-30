@@ -11,7 +11,7 @@ const Dependency = {
 }
 
 const All_BE = axios.create({
-  baseURL: 'http://10.1.1.20:8085/',
+  baseURL: 'http://10.1.1.244:8085/',
   Dependency
 })
 const User_API = axios.create({

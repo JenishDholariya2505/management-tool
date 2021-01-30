@@ -1,0 +1,47 @@
+.node circle {
+    /* fill: #fff; */
+  /*   stroke: steelblue; */
+    stroke-width: 4px;
+    fill: #419fe4;
+    stroke: #419fe424;
+  }
+  .active{
+    stroke: green !important;
+  }
+  .activea{
+    stroke-width: 4px;
+    fill: #419fe4;
+    stroke: #419fe424;
+  }
+  
+  .node text {
+    fill: lightsteelblue;
+    font-size: 12px;
+    font-family: 'Roboto-Light';
+  }
+  
+  .link {
+    fill: none;
+    stroke: #419fe4;
+    animation: pathcolors 2000ms ease-in-out infinite;
+}
+.highlight{
+  stroke: green !important;
+}
+/* 
+  @keyframes pathcolors {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    75% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+   */
+   /* nai line nathi dekhati  batav ne ee*/

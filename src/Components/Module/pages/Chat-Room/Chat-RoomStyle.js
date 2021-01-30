@@ -27,7 +27,14 @@ export const ChartRoomWrapper = styled.div`
     margin: 20px 10px 0px;
     border-radius: 5px;
     padding: 10px;
-    display: flex;
+    height: fit-content;
+    .Title{
+        color: ${({ theme }) => theme.Page.Users.Tital};
+        font-size: 12px;
+        display: block;
+        margin: 1px 0px 0px 10px;
+        position: relative;
+    }
     #legend1, #legend2{
         cursor: pointer;
         overflow: auto;
@@ -35,7 +42,7 @@ export const ChartRoomWrapper = styled.div`
         transition: 0.5s;
         position: relative;
         width: 83px;
-        height: 34vh;
+        height: auto;
     }
     #legend1 > div, #legend2 > div{
         left: 0;

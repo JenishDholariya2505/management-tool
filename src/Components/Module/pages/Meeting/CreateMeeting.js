@@ -12,8 +12,13 @@ export default function CreateMeeting() {
     const [Chip, setChip] = useState([])
     const [UserError, setUserError] = useState({ Error: 'Select User' })
     const [Status, setStatus] = useState(false)
-    const onCreate = values => {
-        window.location.assign('/ZeronSec/Meeting')
+    const onCreate = (values) => {
+        console.log(values, 'values')
+        // window.location.assign('/ZeronSec/Meeting')
+    }
+    const onChange = (date, dateString) => {
+        console.log('dateString', dateString)
+        console.log('date', date)
     }
     const propsmaltiy = {
         name: 'file',
@@ -89,7 +94,7 @@ export default function CreateMeeting() {
                             </JdForm.Item>
                         </div>
                         <JdForm.Item style={{ width: '50vw', display: 'flex' }} hasFeedback label="Meeting Duration" name="DatePicker" rules={[{ required: true, message: 'Enter Meeting Duration' }]}>
-                            <JdDatepicker disabledDate={disabledDate}
+                            <JdDatepicker onChange={onChange} disabledDate={disabledDate}
                                 suffixIcon={<Icons type='DatePicker' />} style={{ width: '100%' }} showTime />
                         </JdForm.Item>
                     </JdForm>
