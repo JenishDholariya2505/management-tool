@@ -1,3 +1,4 @@
+
 import React from 'react';
 import * as d3 from "d3";
 import './treestyle.css'
@@ -6,11 +7,12 @@ import { newchart } from '../../../../../Core/Helper/Data'
 export const Tree = React.memo((props) => {
     const TreeChart = () => {
         setTimeout(() => {
+
             var margin = { top: 20, right: 90, bottom: 30, left: 90 },
                 width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
             const zoom = d3.zoom()
-                .scaleExtent([1, 10])   // zoom set Intial level 1 to 10[1,10]//scale Extent
+                .scaleExtent([1, 7])   // zoom set Intial level 1 to 10[1,10]//scale Extent
                 .translateExtent([[-80, 0], [width + 100, height]])//set svg content in fixed Area
                 .on("zoom", zoomed);//call zoomed function
             var colorScale = d3.scaleLinear()
@@ -23,7 +25,10 @@ export const Tree = React.memo((props) => {
             if (check !== null) {
                 check.innerHTML = ""
             }
-
+            var tooltip = d3.select('body')
+                .append('div').classed('ant-tooltip-inner', true);
+            tooltip.append('div')
+                .attr('class', 'label');
             var svg = d3.select(`#tree`).append("svg")
                 .attr("height", 'calc(100vh - 210px)')
                 .style('width', 'calc(100vw - 673px)')
@@ -111,29 +116,55 @@ export const Tree = React.memo((props) => {
                         d3.selectAll(`#hovernode${d.id}`).classed('highlight', false)
                         let data = d.children === null || d.children === undefined ? [] : d.children
                         rmap(data)
-                    })
+                    });
                 //hover end
-                nodeEnter.append('circle')
+                nodeEnter.append("rect")
+                    .attr("width", 40)
+                    .attr("height", 20)
+                    .attr("stroke", "black")
                     .attr('class', 'node nodeh')
                     .attr("id", (d) => 'hovernode' + d.id)
+                    .attr('y', -10)
+                    .attr('x', -2)
+                    .attr("stroke-width", 1)
                     .style("fill", function (d) {
                         return d._children ? "#419fe4" : "#fff";
                     })
-                    .style("stroke", function (d) { return colorScale(d.data.female / (d.data.female + d.data.male)) });
+                    .on('mouseover', function (i, d) {
+                        tooltip.select('.label').html(d.data.name);
+                        tooltip.style('display', d.data.name.length < 22 ? 'none' : 'block');
+                        tooltip.style('position', 'absolute');
+                    })
+                    .on('mouseout', function (d, i) {
+                        tooltip.style('display', 'none');
+                    })
+                    .on('mousemove', function (d, i) {
+                        tooltip.style('top', d.pageY + 10 + 'px'); tooltip.style('left', d.pageX + 15 + 'px');
+                    })
+                    .style("stroke", '#ffffff00');
 
                 nodeEnter.scale = 0.4;
-                nodeEnter.append('text')
+                var textadd = nodeEnter.append('text')
                     .attr("id", (d) => 'texthover' + d.id)
-                    .attr('class', 'fstyle')
-                    .attr("dy", ".35em")
-                    .attr("x", function (d) {
-                        return d.children || d._children ? -13 : 13;
+                    .attr('class', 'textgroup fstyle')
+                    .attr('height', 20)
+                    .style("fill", function (d) {
+                        return d._children ? "#000" : "#fff";
                     })
-                    .attr("text-anchor", function (d) {
-                        return d.children || d._children ? "end" : "start";
-                    })
-                    .text(function (d) { return d.data.name; })
+                textadd.append('tspan')
+                    .attr("text-anchor", function (d) { return d.data.name.length < 12 ? 'middle' : 'start' })
+                    .attr("class", "first")
+                    .attr('dy', function (d) { return d.data.name.length < 12 ? '0.5em' : '-0.25em' })
+                    .attr('dx', function (d) { return d.data.name.length < 12 ? '2.8em' : null })
+                    .text(function (d) { return d.data.name.substring(0, 12) })
+                textadd.append('tspan')
+                    .attr("text-anchor", "start")
+                    .attr("class", "second")
+                    .attr('dy', '1.3em')
+                    .attr('dx', '-5.3em')
+                    .text(function (d) { return d.data.name.length < 22 ? d.data.name.substring(12, 22) : d.data.name.substring(12, 22) + '...' })
                     .style("fill", function (d) { return colorScale(d.data.female / (d.data.value)) });
+
 
                 var nodeUpdate = nodeEnter.merge(node);
 
@@ -143,10 +174,14 @@ export const Tree = React.memo((props) => {
                         return "translate(" + d.y + "," + d.x + ")";
                     });
 
-                nodeUpdate.select('circle.node')
-                    .attr('r', 10)
+                nodeUpdate.select('rect.node')
                     .style("fill", function (d) {
                         return d._children ? "#419fe4" : "#1a4049";
+                    })
+                    .attr('cursor', 'pointer');
+                nodeUpdate.select('.fstyle')
+                    .style("fill", function (d) {
+                        return d._children ? "#000" : "#FFF";
                     })
                     .attr('cursor', 'pointer');
 
@@ -157,11 +192,8 @@ export const Tree = React.memo((props) => {
                     })
                     .remove();
 
-                nodeExit.select('circle')
-                    .attr('r', 1e-6);
-
                 nodeExit.select('text')
-                    .style('fill-opacity', 1e-6);
+                    .style('fill-opacity', 1);
 
                 var link = svg.selectAll('path.link')
                     .data(links, function (d) { return d.id; })
@@ -177,7 +209,6 @@ export const Tree = React.memo((props) => {
                         return diagonal(o, o)
                     })
 
-                    // .style('stroke', `url(#gret)`)
                     .style('stroke-width', function (d) {
                         return widthScale(d.data.value)
                     });
@@ -206,7 +237,7 @@ export const Tree = React.memo((props) => {
                 function diagonal(s, d) {
                     var path = `M ${s.y} ${s.x}
                     C ${(s.y + d.y) / 2} ${s.x},
-                    ${(s.y + d.y) / 2} ${d.x},
+                    ${(s.y + d.y) / 2} ${d.x + 2},
                     ${d.y} ${d.x} `
                     return path
                 }
@@ -225,8 +256,14 @@ export const Tree = React.memo((props) => {
                 const { transform } = event;
                 svg.attr("transform", transform);
                 svg.attr("stroke-width", 1 / transform.k)
-                d3.selectAll('.node circle')
-                    .style("r", 10 / transform.k)
+                d3.selectAll('.node rect')
+                    .attr('y', -10 / transform.k > -4 ? -4 : -10 / transform.k)
+                    .style("width", 40 / transform.k < 17 ? 17 : 40 / transform.k)
+                    .style("height", 20 / transform.k < 8 ? 8 : 20 / transform.k)
+                d3.selectAll('.first')
+                    .style('font-size', 10 / transform.k - 4 < 2 ? 2 : 10 / transform.k - 4)
+                d3.selectAll('.second')
+                    .style('font-size', 10 / transform.k - 4 < 2 ? 2 : 10 / transform.k - 4)
             }
 
 
@@ -237,4 +274,3 @@ export const Tree = React.memo((props) => {
     return (null);
 })
 export default Tree;
-

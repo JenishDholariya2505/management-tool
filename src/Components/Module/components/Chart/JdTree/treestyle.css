@@ -13,13 +13,20 @@
     fill: #419fe4;
     stroke: #419fe424;
   }
-  
+  /* .fstyle{
+    transform: translate(1px, -10px);
+  } */
   .node text {
     fill: lightsteelblue;
-    font-size: 12px;
+    font-size: 6px;
     font-family: 'Roboto-Light';
   }
-  
+  .first{
+    overflow: hidden !important;
+    text-overflow:ellipsis !important;
+    display: block;
+    white-space: nowrap;
+  }
   .link {
     fill: none;
     stroke: #419fe4;
@@ -27,6 +34,9 @@
 }
 .highlight{
   stroke: green !important;
+  stroke-width: 2;
+  transition: 0.5s !important;
+  /* fill: rgba(0, 128, 0, 0.26) !important; */
 }
 /* 
   @keyframes pathcolors {
