@@ -1,6 +1,4 @@
 .node circle {
-    /* fill: #fff; */
-  /*   stroke: steelblue; */
     stroke-width: 4px;
     fill: #419fe4;
     stroke: #419fe424;
@@ -13,9 +11,6 @@
     fill: #419fe4;
     stroke: #419fe424;
   }
-  /* .fstyle{
-    transform: translate(1px, -10px);
-  } */
   .node text {
     fill: lightsteelblue;
     font-size: 6px;
@@ -33,10 +28,79 @@
     animation: pathcolors 2000ms ease-in-out infinite;
 }
 .highlight{
-  stroke: green !important;
-  stroke-width: 2;
-  transition: 0.5s !important;
-  /* fill: rgba(0, 128, 0, 0.26) !important; */
+  background-color: green !important;
+  transform: translate(-1px, -12.2px) !important;
+  height: 25px !important;
+  width: 50px !important;
+  cursor: pointer;
+}
+.highlight > body{
+  background-color: green !important;
+}
+.highlight > body > div > span{
+  color: aliceblue !important;
+}
+.boxzoom{
+  width: 30px !important;
+  height: 15px !important;
+  transform: translate(-1px, -7px) !important;
+}
+.boxtwozoom{
+  width: 20px !important;
+  height: 10px !important;
+  transform: translate(-1px, -3.7px) !important;
+  
+}
+
+.texttwozoom{
+  font-size: 2px !important;
+}
+.boxx{
+  width: 40px !important;
+  height: 20px !important;
+  transform: translate(-1px, -10px) !important;
+}
+.textth{
+  font-size: 5px !important;
+  height: 14px;
+}
+.textzoom{
+  font-size: 2.9px !important;
+}
+.box{
+  width: 40px;
+  height: 20px;
+  transform: translate(-1px, -10px);
+}
+.textover{
+  text-align: center;
+  height: 6.5px;
+  display: flex;
+  width: 20px;
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.textset{
+  display: block;
+  display: -webkit-box;
+  width: 100%;
+  height: 11px;
+  margin: 0 auto;
+  font-size: 4px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 /* 
   @keyframes pathcolors {
@@ -52,6 +116,6 @@
     100% {
         opacity: 1;
     }
-  }
-   */
+  } */
+  
    /* nai line nathi dekhati  batav ne ee*/

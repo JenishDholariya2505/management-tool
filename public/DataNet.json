@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "First Node",
+        "relation": null,
+        "source": "First"
+    },
+    {
+        "id": 2,
+        "name": "Second Node",
+        "relation": "CONTAINS",
+        "source": "Second"
+    },
+    {
+        "id": 3,
+        "name": "Third Node",
+        "relation": null,
+        "source": "Third"
+    },
+    {
+        "id": 4,
+        "name": "Fourth Node",
+        "relation": "CONTAINS",
+        "source": "Fourth"
+    },
+    {
+        "id": 5,
+        "name": "Five Node",
+        "relation": null,
+        "source": "Five"
+    }
+]

@@ -1,10 +1,10 @@
 import React from 'react'
 import { TaskManageWrapper } from './Task-ManagementStyle';
-import { JDDescriptions, JdFormComponents } from '../../components/Index';
+import { JDDescriptions, JdFormComponents, JdChart } from '../../components/Index';
 import { Link } from 'react-router-dom'
 
-
 const { JdButton } = JdFormComponents
+const { NetworkChart } = JdChart
 export default function TaskManagement() {
 
     return (
@@ -15,6 +15,9 @@ export default function TaskManagement() {
                     <JdButton tital='Create' />
                 </Link>
             </div>
+            <div id='net'></div>
+            <div id='tooltipe'></div>
+            <NetworkChart />
         </TaskManageWrapper>
     )
 }

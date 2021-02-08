@@ -31,6 +31,7 @@ const Users = () => {
 
     // open modal all 
     const Delete = (e) => {
+        
         SetSelectData(e)
         SetModalVar({ DeleteM: true })
     }

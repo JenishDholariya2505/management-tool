@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ChartRoomWrapper } from './Chat-RoomStyle';
 import { JDDescriptions, JdFormComponents, JdChart, Icons, JDTooltip } from '../../components/Index';
 
@@ -6,6 +6,7 @@ const { JdSunburst, Tree } = JdChart
 const { JdButton } = JdFormComponents
 export default function ChatRoom() {
     return (
+
         <ChartRoomWrapper>
             <div className='d-flex Box'>
                 <JDDescriptions title="ChatRoom" />

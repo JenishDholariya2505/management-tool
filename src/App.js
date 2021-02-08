@@ -10,15 +10,18 @@ import { Provider } from "react-redux";
 import store from './Core/Redux/Store'
 import './Font.css'
 
+
 export default class App extends Component {
   state = { Mode: Theme }
   ModeChange = (checked) => {
     localStorage.setItem("Mode", checked ? "Dark" : "Light")
     this.setState({ Mode: checked ? "Dark" : "Light" })
   }
+
   render() {
     const { Mode } = this.state
     localStorage.setItem("Token", 'asdasdasd')
+    // localStorage.clear()
     return (
       <Provider store={store}>
         <ThemeProvider theme={Themes[Mode !== 'Dark' ? 'DarkThemes' : 'LightTheme']}>

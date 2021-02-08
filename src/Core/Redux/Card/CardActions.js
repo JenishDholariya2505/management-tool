@@ -12,6 +12,7 @@ const postConstant = {
 
 
 export const getBlogs = () => {
+    
     return async (dispatch) => {
         dispatch({
             type: postConstant.GET_POST_REQUEST,
