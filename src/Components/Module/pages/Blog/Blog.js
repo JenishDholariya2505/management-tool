@@ -46,7 +46,7 @@ const Blog = () => {
     }
     const ModalCreate = values => { // create modal open
         setVisible(true);
-        document.getElementById('root').style.filter = 'blur(10px)';
+        // document.getElementById('root').style.filter = 'blur(10px)';
     }
     return (
         <BlogWrapper>

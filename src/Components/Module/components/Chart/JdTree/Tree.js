@@ -15,9 +15,6 @@ export const Tree = React.memo((props) => {
                 .scaleExtent([1, 7])   // zoom set Intial level 1 to 10[1,10]//scale Extent
                 .translateExtent([[-80, 0], [width + 100, height]])//set svg content in fixed Area
                 .on("zoom", zoomed);//call zoomed function
-            var colorScale = d3.scaleLinear()
-                .domain([0, 1])
-                .range(['red', 'green']);
             var widthScale = d3.scaleLinear()
                 .domain([1, 80])
                 .range([1, 10]);
@@ -52,7 +49,6 @@ export const Tree = React.memo((props) => {
             root = d3.hierarchy(newchart, function (d) { return d.children; });
             root.x0 = height / 2;
             root.y0 = 0;
-
             root.children.forEach(collapse);
             update(root);
             function collapse(d) {
@@ -64,6 +60,7 @@ export const Tree = React.memo((props) => {
             }
 
             function update(source) {
+                console.log(source, 'source')
                 var treeData = treemap(root);
                 var nodes = treeData.descendants(),
                     links = treeData.descendants().slice(1);
@@ -221,6 +218,7 @@ export const Tree = React.memo((props) => {
                     return path
                 }
                 function click(i, d) {
+                    console.log(d, 'd')
                     if (d.children) {
                         d._children = d.children;
                         d.children = null;

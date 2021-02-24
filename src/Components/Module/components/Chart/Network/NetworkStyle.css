@@ -1,86 +1,72 @@
-.chart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.childnode circle {
+  transition: 0.8s;
+  cursor: pointer;
+  /* stroke: #3a3a3a; */
+  stroke-width: 7px;
 }
-
-.active--link{
-    color: red;
+.childnode:hover circle {
+  cursor: pointer;
+  stroke: #ffffff2a !important;
+  stroke-width: 16px !important;
 }
-.active--author{
-    color: yellow;
+.perentnode circle {
+  transition: 0.8s;
+  cursor: pointer;
+  /* stroke: #3a3a3a; */
+  stroke-width: 7px;
 }
-.link {
-  /* fill: gray; */
-  stroke: #363636;
-  stroke-width: 1px;
+.perentnode:hover circle {
+  cursor: pointer;
+  stroke: #ffffff2a !important;
+  stroke-width: 16px !important;
 }
-#arrow {
-  stroke: #999;
-  fill: #999;
-}
-.hoverauthor{
-  r: 10px
-}
-/* 
-.circle {
-  cursor: grab;
-} */
-.author{
-    fill: #ea2e49;
-}
-/* .link{
-    fill: #77c4d3;
-} */
-.node {
-    stroke-width: 1px;
-}
-.node--link{
-    fill: rgba(0, 174, 255, 0);
-}
-.node--author{
-    fill: rgb(0, 255, 170);
-}
-.image {
-  border: 1px solid white;
-}
-.rtext{
-  fill: white;
-}
-.testtext{
-  fill: grey;
-  width: 10px;
-  height: 10px;
-}
-.title {
-  font-size: 3vw;
-  font-weight: bold;
-  fill: grey;
-}
-.text {
-    font-size: 14px;
-    font-weight: bold;
-    fill: grey;
-  }
-  .color {
-    stroke: grey;
-    stroke-width: 2px;
-  }
-  .author-color {
-    fill: #ea2e49;
-  }
-  domain-color {
-    fill: #77c4d3;
-  }
-
-.tooltip {
-  position: absolute;
-  border-radius: 5px;
-  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.2);
-  padding: 4px;
-  background: rgba(0,0,0, 0.8);
-  font-weight: bold;
+.edgepath {
+  /* stroke: #fff; */
+  stroke-width: 1;
   pointer-events: none;
-  text-align: center;
+}
+.textnode {
+  /* font-size: 12px; */
+  transform: translate(0px, -1px);
+  text-anchor: middle;
+  pointer-events: none;
+}
+.edgelabel {
+  font-size: 10px;
+  fill: #aaa;
+  pointer-events: none;
+}
+.innertext {
+  text-anchor: middle;
+  filter: url(#solid);
+  pointer-events: "none";
+}
+.btnbranch {
+  transform: rotate(270deg);
+}
+.btneye {
+  transform: rotate(90deg);
+}
+.btnbranch,
+.btneye {
+  transition: 0.5s;
+  fill: #ffffff3f;
+  stroke-width: 3px;
+  stroke: #2d2d2d;
+}
+.btnbranch:hover,
+.btneye:hover {
+  cursor: pointer;
+  fill: #ffffff73;
+}
+.close {
+  display: none;
+}
+.disabled {
+  cursor: no-drop !important;
+}
+.close > image {
+  pointer-events: none;
+  width: 20px;
+  x: -9px;
 }

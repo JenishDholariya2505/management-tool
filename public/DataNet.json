@@ -2,31 +2,43 @@
     {
         "id": 1,
         "name": "First Node",
-        "relation": null,
-        "source": "First"
+        "relation": "WhatsApp",
+        "source": null
     },
     {
         "id": 2,
         "name": "Second Node",
         "relation": "CONTAINS",
-        "source": "Second"
+        "source": 1
     },
     {
         "id": 3,
         "name": "Third Node",
-        "relation": null,
-        "source": "Third"
+        "relation": "WhatsApp",
+        "source": null
     },
     {
         "id": 4,
         "name": "Fourth Node",
         "relation": "CONTAINS",
-        "source": "Fourth"
+        "source": 2
     },
     {
-        "id": 5,
-        "name": "Five Node",
-        "relation": null,
-        "source": "Five"
+        "id": 6,
+        "name": "Six Node",
+        "relation": "Phone",
+        "source": null
+    },
+    {
+        "id": 7,
+        "name": "Seven Node",
+        "relation": "WhatsApp",
+        "source": null
+    },
+    {
+        "id": 8,
+        "name": "Eight Node",
+        "relation": "Phone",
+        "source": null
     }
 ]

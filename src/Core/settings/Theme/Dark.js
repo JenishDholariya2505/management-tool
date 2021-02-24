@@ -126,5 +126,8 @@ export const DarkThemes = {
         CardBG: '#252A2F',
         BodyText: '#E5E5E5',
         Footertext: '#88CDFF',
+    },
+    graph: {
+        bg: '#2d2d2d'
     }
 }

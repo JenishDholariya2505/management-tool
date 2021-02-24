@@ -1,8 +1,8 @@
-.node circle {
+/* .node circle {
     stroke-width: 4px;
     fill: #419fe4;
     stroke: #419fe424;
-  }
+  } */
   .active{
     stroke: green !important;
   }

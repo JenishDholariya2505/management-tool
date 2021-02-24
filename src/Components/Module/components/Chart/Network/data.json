@@ -1,0 +1,149 @@
+{
+    "configuration": {
+      "parent": {
+        "name": "Product",
+        "count": 15,
+        "textColor": "#ffffff",
+        "captions": ["productId", "name", "price"],
+        "size": [8, 12, 16, 20, 24],
+        "color": ["#BBB29E", "#63c5ff", "#FCE4BB", "#B9E5F2", "#8DCC93"],
+        "defaultCaption": "name",
+        "defaultColor": "#63c5ff",
+        "defaultSize": 12
+      },
+      "child": {
+        "name": "Orders",
+        "count": 450,
+        "textColor": "#ffffff",
+        "size": [8, 12, 16, 20, 24],
+        "color": ["#BBB29E", "#E5CFE4", "#bb8f55", "#B9E5F2", "#8DCC93"],
+        "captions": ["orderId", "orderDate", "shipCountry"],
+        "defaultColor": "#bb8f55",
+        "defaultSize": 12,
+        "defaultCaption": "orderId"
+      },
+      "relation": {
+        "name": "Relation",
+        "captions": ["orderDetailsId", "orderQuantity", "type"],
+        "size": [1, 2, 3, 4, 5],
+        "color": ["#BBB29E", "#E5CFE4", "#FCE4BB", "#B9E5F2", "#8DCC93"],
+        "defaultlineColor": "#FCE4BB",
+        "defaultlineWidth": 1,
+        "defaultCaption": "type"
+      }
+    },
+    "data": [
+      {
+        "productId": "L_P_ONE",
+        "name": "Laptop",
+        "price": "90000.00",
+        "children": [
+          {
+            "orderId": "tushar.k",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "tushar",
+              "orderQuantity": 12,
+              "type": "CONTAINS"
+            }
+          },
+          {
+            "orderId": "jenish.d",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "jenish",
+              "orderQuantity": 12,
+              "type": "CONTAINS"
+            }
+          },
+          {
+            "orderId": "hepin_v",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "hepin",
+              "orderQuantity": 12,
+              "type": "CONTAINS"
+            }
+          }
+        ]
+      },
+      {
+        "productId": "M_P_TWO",
+        "name": "Mouce",
+        "price": "300.00",
+        "children": [
+          {
+            "orderId": "jenish.d",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "jenish",
+              "orderQuantity": 20,
+              "type": "CONTAINS"
+            }
+          },
+          {
+            "orderId": "tushar.k",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "tushar",
+              "orderQuantity": 12,
+              "type": "CONTAINS"
+            }
+          },
+          {
+            "orderId": "chirag.m",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "chirag",
+              "orderQuantity": 20,
+              "type": "CONTAINS"
+            }
+          }
+        ]
+      },
+      {
+        "productId": "P_P_TWO",
+        "name": "PP",
+        "price": "300.00",
+        "children": [
+          {
+            "orderId": "jenish.d",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "jenish",
+              "orderQuantity": 20,
+              "type": "CONTAINS"
+            }
+          },
+          {
+            "orderId": "jenil.d",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "jenil",
+              "orderQuantity": 20,
+              "type": "CONTAINS"
+            }
+          },
+          {
+            "orderId": "chirag.m",
+            "orderDate": "12-02-2020",
+            "shipCountry": "Australia",
+            "relationDetails": {
+              "orderDetailsId": "chirag",
+              "orderQuantity": 20,
+              "type": "CONTAINS"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

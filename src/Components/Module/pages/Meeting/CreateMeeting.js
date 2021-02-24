@@ -40,7 +40,6 @@ export default function CreateMeeting() {
         }
     }, [Chip.length, Status])
     const Remove = (i) => {
-        setChip(Chip.splice(i, 0))
         setChip(Chip.filter(d => d !== i))
     }
     const submit = () => {

@@ -18,7 +18,8 @@ export default function Notes() {
     }, [Remove])
 
     const Dataset = (e) => {
-        // let j = e.target.value.split(`\n`)
+        let j = e.target.value.split(`\n`)
+        console.log(j, 'j')
         // let d = j.join(`@`)
         // let x = d.split(`@`)
         // console.log(x, 'asd')
