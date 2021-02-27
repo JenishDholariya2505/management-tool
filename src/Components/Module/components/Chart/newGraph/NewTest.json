@@ -1,0 +1,145 @@
+{
+  "configuration": {
+    "user": {
+      "name": "User",
+      "textColor": "#ffffff",
+      "size": [10, 12, 14, 16, 18],
+      "captions": ["userId", "userName"],
+      "color": ["#62CAE3", "#83D2E1", "#98D3DC", "#B2D9DD", "#A8C7C9"],
+      "defaultCaption": "userName",
+      "defaultColor": "#62CAE3",
+      "defaultSize": 12
+    },
+    "post": {
+      "name": "Post",
+      "textColor": "#ffffff",
+      "size": [8, 10, 12, 14, 16],
+      "captions": ["postId", "postTitle"],
+      "color": ["#4F5BA9", "#5E72B6", "#778ABF", "#879FD1", "#9FBBE2"],
+      "defaultCaption": "postTitle",
+      "defaultColor": "#4F5BA9",
+      "defaultSize": 10
+    },
+    "comments": {
+      "name": "Comments",
+      "textColor": "#ffffff",
+      "size": [6, 8, 10, 12, 14],
+      "captions": ["userId", "commentId"],
+      "color": ["#F26722", "#E57341", "#D88166", "#D29383", "#E0B6AD"],
+      "defaultCaption": "commentId",
+      "defaultColor": "#D88166",
+      "defaultSize": 10
+    },
+    "postRelationDetails": {
+      "name": "User_Post_Relation",
+      "captions": ["postDate", "postType", "postTime", "postHashTags"],
+      "size": [1, 2, 3, 4, 5],
+      "color": ["#176572", "#187E89", "#18A1A8", "#17B6B6", "#42C0C0"],
+      "defaultColor": "#42C0C0",
+      "defaultSize": 1,
+      "defaultCaption": "postDate"
+    },
+    "childRelationDetails": {
+      "name": "User_Comments_Relation",
+      "captions": ["commentsText", "isDeleted"],
+      "size": [1, 2, 3, 4, 5],
+      "color": ["#4F5BA9", "#5E72B6", "#778ABF", "#879FD1", "#9FBBE2"],
+      "defaultColor": "#9FBBE2",
+      "defaultSize": 2,
+      "defaultCaption": "commentsText"
+    },
+    "perentRelationDetails": {
+      "name": "Post_Comments_Relation",
+      "captions": ["commentTime", "commentId"],
+      "size": [1, 2, 3, 4, 5],
+      "color": ["#691E5D", "#8E2682", "#A23493", "#B1479A", "#C66DAC"],
+      "defaultColor": "#C66DAC",
+      "defaultSize": 3,
+      "defaultCaption": "commentTime"
+    }
+  },
+  "data": [
+    {
+      "userId": "Jenish_D",
+      "userName": "jenish",
+      "children": [
+        {
+          "postId": "J_Post",
+          "postTitle": "post_one",
+          "postRelationDetails": {
+            "postDate": "06-02-2121",
+            "postType": "videos",
+            "postTime": "09:29:02",
+            "postHashTags": "zxc,askj_ss,l"
+          },
+          "children": [
+            {
+              "userId": "Jenish_D",
+              "commentId": "1",
+              "childRelationDetails": {
+                "commentsText": "testfirst",
+                "isDeleted": false
+              },
+              "perentRelationDetails": {
+                "commentTime": "09:23:58",
+                "commentId": "1"
+              }
+            },
+            {
+              "userId": "Hepin_V",
+              "commentId": "3",
+              "childRelationDetails": {
+                "commentsText": "hepinTest",
+                "isDeleted": true
+              },
+              "perentRelationDetails": {
+                "commentTime": "11:20:00",
+                "commentId": "3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "userId": "Hepin_V",
+      "userName": "hepin",
+      "children": [
+        {
+          "postId": "H_Post",
+          "postTitle": "post_u_2",
+          "postRelationDetails": {
+            "postDate": "12-02-2121",
+            "postType": "images",
+            "postTime": "09:29:02",
+            "postHashTags": "zxc,zmoiqwe_slkdas,l"
+          }
+        },
+        {
+          "postId": "H_Post2",
+          "postTitle": "post@_2",
+          "postRelationDetails": {
+            "postDate": "13-02-2121",
+            "postType": "images",
+            "postTime": "12:29:51",
+            "postHashTags": "zxc,laksjdlkasjd_ASIu,l"
+          },
+          "children": [
+            {
+              "userId": "Jenish_D",
+              "commentId": "33",
+              "childRelationDetails": {
+                "commentsText": "first_C_J_TO_H",
+                "isDeleted": true
+              },
+              "perentRelationDetails": {
+                "commentTime": "09:23:58",
+                "commentId": "33"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

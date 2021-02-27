@@ -60,7 +60,6 @@ export const Tree = React.memo((props) => {
             }
 
             function update(source) {
-                console.log(source, 'source')
                 var treeData = treemap(root);
                 var nodes = treeData.descendants(),
                     links = treeData.descendants().slice(1);
@@ -218,7 +217,6 @@ export const Tree = React.memo((props) => {
                     return path
                 }
                 function click(i, d) {
-                    console.log(d, 'd')
                     if (d.children) {
                         d._children = d.children;
                         d.children = null;

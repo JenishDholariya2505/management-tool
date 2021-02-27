@@ -29,7 +29,7 @@ export const TaskManageWrapper = styled.div`
 }
 .graphbox{
     margin-top: 10px;
-    #net{
+    .graphset{
         border-radius: 10px;
         background-color: ${({ theme }) => theme.graph.bg};
     }

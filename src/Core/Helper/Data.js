@@ -2,7 +2,7 @@ const authData = localStorage.getItem('Token')
 export const Theme = localStorage.getItem('Mode')
 export const auth = authData ? authData : null
 export const Panel = {
-    Modual: ['Users', 'Use-Groups', 'Blog', 'Chat-Room', 'Task-Management', 'Notes', 'Meeting']
+    Modual: ['Users', 'Use-Groups', 'Blog', 'Chat-Room', 'Task-Management', 'Notes', 'Meeting', 'NewGraph']
 }
 export const columns = [
     {

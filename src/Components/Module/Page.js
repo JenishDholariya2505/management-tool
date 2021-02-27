@@ -11,7 +11,6 @@ export default function Page() {
     const Menu = (d) => {
         setbradCrumb(d)
     }
-    console.log(bradCrumb, 'test')
     return (
         <div>
             {auth ?

@@ -11,6 +11,7 @@ import CreateTask from './pages/Task-Management/CreateTask'
 import Notes from './pages/Notes/Notes'
 import Meeting from './pages/Meeting/Meeting'
 import CreateMeeting from './pages/Meeting/CreateMeeting'
+import NewGraph from './pages/newGraph/newGraph'
 
 export default class PageRouter extends Component {
     render() {
@@ -27,6 +28,7 @@ export default class PageRouter extends Component {
                     <Route path='/ZeronSec/Task-Management' component={TaskManagement} />
                     <Route path='/ZeronSec/Notes' component={Notes} />
                     <Route path='/ZeronSec/Meeting' component={Meeting} />
+                    <Route path='/ZeronSec/NewGraph' component={NewGraph} />
                     <Route path='/ZeronSec/Meeting_Create' component={CreateMeeting} />
                     <Route path='*' component={NotFound} />
                 </Switch>

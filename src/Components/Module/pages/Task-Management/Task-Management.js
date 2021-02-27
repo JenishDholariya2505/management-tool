@@ -86,7 +86,7 @@ export default function TaskManagement() {
                     <JdButton className={view.child ? 'nodebtn active' : 'nodebtn'} onClick={viewlink} tital='Oders' />
                     <JdButton className={view.relation ? 'nodebtn active' : 'nodebtn'} onClick={viewrelation} tital='Relation' />
                 </div>
-                {Data.data.length === 0 ? <JDSpin spinning={true} delay={500} /> : <div style={{ width: 'calc(100vw - 102px)', height: 'calc(100vh - 230px)' }} id='net' />}
+                {Data.data.length === 0 ? <JDSpin spinning={true} delay={500} /> : <div style={{ width: 'calc(100vw - 102px)', height: 'calc(100vh - 230px)' }} id='net' className='graphset' />}
                 <NetworkChart nodeD={Data.data} Config={configurationadd} />
                 <div className='modify' style={{ display: (view.parent || view.child || view.relation ? '' : 'none') }}>
                     <div className='innerdata'>

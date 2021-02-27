@@ -1,0 +1,65 @@
+.node circle {
+  transition: 0.8s;
+  cursor: pointer;
+  /* stroke: #3a3a3a; */
+  font-size: 12px;
+  stroke-width: 7px;
+}
+.node:hover circle {
+  cursor: pointer;
+  stroke: #ffffff2a !important;
+  stroke-width: 16px !important;
+}
+.edgepath {
+  /* stroke: #fff; */
+  stroke-width: 1;
+  pointer-events: none;
+}
+.textnode {
+  /* font-size: 12px; */
+  transform: translate(0px, -1px);
+  text-anchor: middle;
+  pointer-events: none;
+}
+.edgelabel {
+  font-size: 10px;
+  fill: #aaa;
+  pointer-events: none;
+}
+.innertext {
+  text-anchor: middle;
+  filter: url(#solid);
+  pointer-events: "none";
+}
+.btnbranch {
+  transform: rotate(270deg);
+}
+.btneye {
+  transform: rotate(90deg);
+}
+.btnbranch,
+.btneye {
+  transition: 0.5s;
+  fill: #ffffff3f;
+  stroke-width: 3px;
+  stroke: #2d2d2d;
+}
+.btnbranch:hover,
+.btneye:hover {
+  cursor: pointer;
+  fill: #ffffff73;
+}
+.node text {
+  font-size: 12px !important;
+}
+.close {
+  display: none;
+}
+.disabled {
+  cursor: no-drop !important;
+}
+.close > image {
+  pointer-events: none;
+  width: 20px;
+  x: -9px;
+}
