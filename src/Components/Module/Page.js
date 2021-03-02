@@ -6,7 +6,6 @@ import { auth } from '../../Core/Helper/Data'
 import { Redirect } from 'react-router-dom';
 
 export default function Page() {
-    // const { Theme } = this.props
     const [bradCrumb, setbradCrumb] = useState(window.location.pathname.split('/')[2])
     const Menu = (d) => {
         setbradCrumb(d)

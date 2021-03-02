@@ -26,7 +26,7 @@ export default function Signin() {
                                 </span>
                             <span>
                                 Our obsession to engineer robust & meaningfull solutions drives us forward
-                                every day. We are the company where passion meets detailed engineering.
+                                every day. We are the company where passion meets detailed engineering. sad
                                 </span>
                         </div>
                     </div>
@@ -41,16 +41,16 @@ export default function Signin() {
                             </div>
                             <JdForm name="normal_login" layout="vertical" className="login-form" initialValues={{ remember: true }} onFinish={onFinish}>
                                 <JdForm.Item hasFeedback name="username" label='Username' rules={[{ required: true, whitespace: true, message: 'Please input your User Name!' }]} >
-                                    <JdInput autoComplete='off' placeholder="User Name" />
+                                    <JdInput autoComplete='off' data-id='username' placeholder="User Name" />
                                 </JdForm.Item>
                                 <JdForm.Item hasFeedback name="password" label="Password" rules={[{ required: true, whitespace: true, message: 'Please input your Password!' }]} >
-                                    <JdInput.Password type="password" placeholder="Password" />
+                                    <JdInput.Password data-id='password' type="password" placeholder="Password" />
                                 </JdForm.Item>
                                 <JdForm.Item style={{ textAlign: 'end' }}>
                                     <Link className="login-form-forgot" to='/Auth/Forgot'>Forgot password</Link>
                                 </JdForm.Item>
                                 <JdForm.Item style={{ textAlign: 'center' }}>
-                                    <JdButton type="primary" htmlType="submit" loading={Res.authentication} className="login-form-button" tital=' Log in' />
+                                    <JdButton type="primary" htmlType="submit" loading={Res.authentication} className="login-form-button" tital='Log in' />
                                 </JdForm.Item>
                             </JdForm>
                         </div>

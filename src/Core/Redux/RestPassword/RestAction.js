@@ -1,12 +1,13 @@
 import { Axios } from '../AxiosLogic';
-import { All_BE } from '../AxiosBase';
+import { All_BE, Login } from '../AxiosBase';
 
 let Auth = All_BE
 
 export const LoginAPI = (user) => {
+    console.log(user, 'user')
     return async (dispatch) => {
         dispatch(
-            Axios({ url: "login", data: user, type: "LOGIN", method: 'post', IP: Auth })
+            Axios({ url: "login", data: user, type: "LOGIN", method: 'post', IP: Login })
         )
     };
 };

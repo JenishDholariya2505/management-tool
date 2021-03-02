@@ -17,10 +17,7 @@ const Users = () => {
     useEffect(() => {
         dispatch(userGet())
     }, [dispatch])
-
-    useEffect(() => {
-        document.getElementById('root').style.filter = ModalVar.CreateM || ModalVar.EditM || ModalVar.DeleteM ? 'blur(10px)' : 'blur(0px)';
-    }, [ModalVar])
+    
     useEffect(() => {
         if (Users.Find !== undefined) {
             SetEdit(Users.Find)
@@ -31,12 +28,11 @@ const Users = () => {
 
     // open modal all 
     const Delete = (e) => {
-        
         SetSelectData(e)
         SetModalVar({ DeleteM: true })
     }
     const edit = (data) => {
-        dispatch(UserFind(data.token))
+        dispatch(UserFind(data.tokenuser))
     }
     const AddModal = () => {
         SetModalVar({ CreateM: true })
@@ -46,10 +42,10 @@ const Users = () => {
         dispatch(userAdd(values))
     }
     const DeleteModal = () => {
-        dispatch(userRemove(SelectData.token))
+        dispatch(userRemove(SelectData.tokenuser))
     }
     const editdata = (values) => {
-        dispatch(UserUpdate(values, Edit.token))
+        dispatch(UserUpdate(values, Edit.tokenuser))
     }
     // modal close all
     const CloseModal = () => {
@@ -134,7 +130,7 @@ const Users = () => {
                         <Icons type='Edit' style={{ marginRight: '5px' }} onClick={() => edit(d)} />
                     </JDTooltip>
                     <JDTooltip placement="bottom" key='1' title={'Delete User'}>
-                        <Icons type='Delete' style={{ marginRight: '5px' }} onClick={() => Delete(e)} />
+                        <Icons data-test='deleteUser' type='Delete' style={{ marginRight: '5px' }} onClick={() => Delete(e)} />
                     </JDTooltip>
                 </JDSpace>
             )
@@ -144,8 +140,8 @@ const Users = () => {
         <UserWrapper>
             <div className='d-flex Box'>
                 <JDDescriptions title="User" />
-                <JdButton tital='Create' className='ant-btn' onClick={AddModal} />
-                <AddUser clr={Users.getData} loading={Users.status} visible={ModalVar.CreateM} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} Data={ModalVar.EditM ? Edit : null} onCreate={ModalVar.EditM ? editdata : UseAddAction} close={CloseModal} />
+                <JdButton tital='Create' className='ant-btn' data-test='AddUser' onClick={AddModal} />
+                <AddUser data-test='EditUser' clr={Users.getData} loading={Users.status} visible={ModalVar.CreateM} NameModal={ModalVar.EditM ? 'Edit User' : 'New User'} Data={ModalVar.EditM ? Edit : null} onCreate={ModalVar.EditM ? editdata : UseAddAction} close={CloseModal} />
             </div>
             <div>
                 <div>
@@ -158,7 +154,7 @@ const Users = () => {
                         scroll={{ x: 'calc(600px + 50%)', y: 'calc(100vh - 260px)' }}
                         loading={Users.status}
                     />
-                    <DeleteListUser loading={Users.status} Delete={DeleteModal} Privew={ModalVar.DeleteM} close={CloseModal} data={SelectData} />
+                    <DeleteListUser loading={Users.status} Delete={DeleteModal} Privew={ModalVar.DeleteM} data-test='CloseModal' close={CloseModal} data={SelectData} />
                 </div>
             </div>
         </UserWrapper>

@@ -1,4 +1,4 @@
-const authData = localStorage.getItem('Token')
+const authData = sessionStorage.getItem('Token')
 export const Theme = localStorage.getItem('Mode')
 export const auth = authData ? authData : null
 export const Panel = {

@@ -7,7 +7,7 @@ export default class JDModal extends Component {
         return (
             <div>
                 <Modal
-                    mask={false}
+                    mask={true}
                     maskClosable={false}
                     title={Tital}
                     centered={centered}

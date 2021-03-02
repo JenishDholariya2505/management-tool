@@ -12,23 +12,14 @@ import './Font.css'
 
 
 export default class App extends Component {
-  state = { Mode: Theme }
-  ModeChange = (checked) => {
-    localStorage.setItem("Mode", checked ? "Dark" : "Light")
-    this.setState({ Mode: checked ? "Dark" : "Light" })
-  }
-
   render() {
-    const { Mode } = this.state
-    localStorage.setItem("Token", 'asdasdasd')
-    // localStorage.clear()
     return (
       <Provider store={store}>
-        <ThemeProvider theme={Themes[Mode !== 'Dark' ? 'DarkThemes' : 'LightTheme']}>
+        <ThemeProvider theme={Themes['DarkThemes']}>
           <GlobalStyles />
           <BrowserRouter>
             {<Route render={() => <Redirect to={auth ? '/ZeronSec/Users' : '/Auth/Login'} />} />}
-            <AppRouter Theme={this.ModeChange} />
+            <AppRouter />
           </BrowserRouter>
         </ThemeProvider>
       </Provider>

@@ -5,12 +5,9 @@ import AuthRouter from './Components/Module/auth/AuthRotue'
 
 export default class AppRouter extends Component {
     render() {
-        const { Theme } = this.props
         return (
             <div>
-                <Route path={'/ZeronSec'}>
-                    <Page Theme={Theme} />
-                </Route>
+                <Route path={'/ZeronSec'} component={Page} />
                 <Route path={'/Auth'} component={AuthRouter} />
             </div>
         )

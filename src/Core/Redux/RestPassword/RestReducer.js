@@ -19,15 +19,17 @@ export default (state = initState, action) => {
             )
         case "LOGIN_SUCCESS":
             JdSuccess({ text: action.payload.message })
+            sessionStorage.setItem("Token", JSON.stringify(action.payload))
             return (
                 window.location.assign('/ZeronSec/Users'),
-                localStorage.setItem('Token', action.payload.data.jwtToken.token),
+                // localStorage.setItem('Token', JSON.stringify(action.payload)),
                 state = {
                     Lognot: false,
                     authentication: false,
                     user: action.payload,
                 }
             )
+
         case "LOGIN_FAIL":
             JDNotification({ mes: action.payload })
             return (
